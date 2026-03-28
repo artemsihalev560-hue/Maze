@@ -90,6 +90,8 @@ wall2 = Wall(0, 190, 0, 270, 200, 10, 300)
 wall3 = Wall(0, 190, 0, 270, 200, 200, 10)
 wall4 = Wall(0, 190, 0, 470, 200, 10, 300)
 wall5 = Wall(0, 190, 0, 470, 200, 100, 10)
+wall6 = Wall(0, 190, 0, 470, 100, 10, 100)
+wall7 = Wall(0, 190, 0, 270, 100, 10, 100)
 
 money = mixer.Sound('money.ogg')
 kick = mixer.Sound('kick.ogg')
@@ -115,6 +117,8 @@ while game:
         wall3.draw_wall()
         wall4.draw_wall()
         wall5.draw_wall()
+        wall6.draw_wall()
+        wall7.draw_wall()
 
         player.update()
         enemy.update()
@@ -124,7 +128,14 @@ while game:
             money.play()
             mixer.music.stop()
             window.blit(text1, (220, 220))
-        if sprite.collide_rect(player, enemy) or sprite.collide_rect(player, wall1) or sprite.collide_rect(player, wall2) or sprite.collide_rect(player, wall3) or sprite.collide_rect(player, wall4) or sprite.collide_rect(player, wall5):
+        if (sprite.collide_rect(player, enemy) or
+            sprite.collide_rect(player, wall1) or
+            sprite.collide_rect(player, wall2) or
+            sprite.collide_rect(player, wall3) or
+            sprite.collide_rect(player, wall4) or
+            sprite.collide_rect(player, wall5) or
+            sprite.collide_rect(player, wall6) or
+            sprite.collide_rect(player, wall7)):
             finish = True
             kick.play()
             mixer.music.stop()
